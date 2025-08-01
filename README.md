@@ -24,7 +24,7 @@ Features extracted include: URL length, special characters, subdomain count, use
 
 🛠️ Installation
 bash
-git clone https://github.com/sainithinpamulaparthi/phishing-url-detection.git
+git clone https://github.com/sainithinpamulaparthi/phishing-url-detection
 cd phishing-url-detection-using-machine-learning
 pip install -r requirements.txt
 🚀 Usage
