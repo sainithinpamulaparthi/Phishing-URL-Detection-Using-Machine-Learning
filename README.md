@@ -72,7 +72,7 @@ This project is licensed under the MIT License. See LICENSE for details.
 
 🙋 Contact
 Project Maintainer: [Sai Nithin Pamulaparthi]
-Email: nithu772005@example.com
+Email: nithu772005@gmail.com
 Feel free to reach out for collaboration or queries.
 
 ⭐ If you find this project useful, please star the repository!
