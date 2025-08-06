@@ -1,61 +1,70 @@
-Phishing-URL-Detection-Using-Machine-Learning 🎣
-A web application that uses machine learning to detect phishing URLs in real-time. This tool helps users identify potentially malicious websites before visiting them, enhancing online security.
+# Phishing URL Detection Using Machine Learning 🎣
 
-✨ Features
-Real-Time Detection: Instantly classify URLs as "Legitimate" or "Phishing".
+This repository contains the source code for a web application that uses machine learning to detect phishing URLs in real-time. The goal is to provide a simple yet powerful tool for users to verify the safety of a URL before clicking on it.
 
-Machine Learning Powered: Utilizes a RandomForestClassifier for high accuracy.
+---
 
-User-Friendly Interface: Clean, modern, and easy-to-use web interface built with Flask.
+### 🎯 **Project Goal**
 
-Efficient Model Loading: The trained model is saved and loaded on startup, eliminating the need for retraining.
+The main objective is to build and deploy a robust application that leverages a `RandomForestClassifier` to achieve high accuracy in identifying phishing attempts. This project serves as a practical implementation of machine learning for a real-world cybersecurity problem.
 
-Secure Session Management: Includes a simple login/logout flow to simulate a real-world application.
+---
 
-🛠️ Tech Stack
-Backend: Python, Flask
+### 🗂️ **Project Modules**
 
-Machine Learning: Scikit-learn, Pandas, Joblib
+| # | Module | Status | Description |
+| :--- | :--- | :--- | :--- |
+| 1 | **Feature Extraction** | ✅ | Logic to convert URL strings into numerical features based on structural properties (e.g., length, IP address, special characters). |
+| 2 | **Model Training** | ✅ | A `RandomForestClassifier` is trained on the `phishing_site_urls.csv` dataset and saved as `phishing_model.joblib`. |
+| 3 | **Web Interface** | ✅ | A user-friendly front-end built with Flask that includes a secure login, a URL submission form, and a results display. |
+| 4 | **Prediction API** | ✅ | A Flask route that handles incoming URL submissions, processes them through the model, and returns a classification. |
 
-Frontend: HTML, CSS
+---
 
-🚀 Getting Started
-Follow these steps to get the project up and running on your local machine.
+### 📂 **File Structure**
 
-Prerequisites
-Python 3.x
+| File | Purpose |
+| :--- | :--- |
+| `web_app.py` | The main Python script that contains all the Flask routes and machine learning logic. |
+| `phishing_site_urls.csv` | The dataset used to train the machine learning model. |
+| `requirements.txt` | A list of all the Python libraries required to run the project. |
+| `phishing_model.joblib` | The pre-trained and saved machine learning model file for instant loading. |
+| `feature_columns.joblib`| Stores the feature names to ensure consistency between training and prediction. |
+| `README.md` | This file, providing a comprehensive overview of the project. |
 
-pip (Python package installer)
+---
 
-Installation & Setup
-Clone the repository:
+### 🚀 **How to Run**
 
-git clone https://github.com/sainithinpamulaparthi/Phishing-URL-Detection-Using-Machiine-Learning.git
-cd phishing-url-detector
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/sainithinpamulaparthi/phishing-url-detection-using-machine-learning.git](https://github.com/sainithinpamulaparthi/phishing-url-detection-using-machine-learning.git)
+    cd phishing-url-detector
+    ```
 
-Install the required libraries:
+2.  **Install Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-pip install -r requirements.txt
+3.  **Run the Flask App:**
+    ```bash
+    python web_app.py
+    ```
 
-Place the dataset:
-Make sure the phishing_site_urls.csv file is in the root directory of the project.
+4.  **Access in Browser:**
+    Open your web browser and go to `http://127.0.0.1:5000`.
 
-Run the application:
+---
 
-python web_app.py
+### 📚 **Technologies & Resources**
 
-Access the application:
-Open your web browser and navigate to http://127.0.0.1:5000.
+* **Backend**: [Python](https://www.python.org/), [Flask](https://flask.palletsprojects.com/)
+* **Machine Learning**: [Scikit-learn](https://scikit-learn.org/), [Pandas](https://pandas.pydata.org/), [Joblib](https://joblib.readthedocs.io/)
+* **Dataset**: [Phishing Site URLs on Kaggle](https://www.kaggle.com/datasets/eswarchandt/phishing-website-detector)
 
-⚙️ How It Works
-The application's core logic involves a few key steps:
+---
 
-Feature Extraction: When a user submits a URL, its structural properties (like URL length, presence of an IP address, use of hyphens, etc.) are converted into a numerical feature set.
+### 💡 **Final Thoughts**
 
-Model Prediction: These features are fed into the pre-trained Random Forest model.
-
-Classification: The model classifies the URL as either Legitimate (0) or Phishing (1).
-
-Display Result: The result is then displayed to the user on the web interface.
-
-The model is trained only once (the first time the app runs) and then saved as phishing_model.joblib for instant loading in future sessions.
+> "The best defense against cyber threats is a combination of user awareness and intelligent tools. This project aims to be one of those tools."
