@@ -1,78 +1,61 @@
-Phishing URL Detection Using Machine Learning
-A robust and real-time machine learning solution to detect phishing URLs and safeguard users from cyber threats.
+Phishing-URL-Detection-Using-Machine-Learning 🎣
+A web application that uses machine learning to detect phishing URLs in real-time. This tool helps users identify potentially malicious websites before visiting them, enhancing online security.
 
-🚩 Project Overview
-Phishing attacks remain one of the most prevalent cybersecurity threats, where attackers spoof legitimate websites to steal sensitive data. This project implements advanced machine learning models to classify URLs as phishing or legitimate, improving detection accuracy beyond traditional blacklist methods.
+✨ Features
+Real-Time Detection: Instantly classify URLs as "Legitimate" or "Phishing".
 
-💡 Features
-Automatic phishing URL classification based on extracted URL characteristics.
+Machine Learning Powered: Utilizes a RandomForestClassifier for high accuracy.
 
-Multiple machine learning models implemented: Logistic Regression, Random Forest, SVM.
+User-Friendly Interface: Clean, modern, and easy-to-use web interface built with Flask.
 
-High classification accuracy (up to 98.5%) on benchmark datasets.
+Efficient Model Loading: The trained model is saved and loaded on startup, eliminating the need for retraining.
 
-Real-time detection with responsive web interface and command-line tools.
+Secure Session Management: Includes a simple login/logout flow to simulate a real-world application.
 
-Modular codebase making it easy to extend and improve.
+🛠️ Tech Stack
+Backend: Python, Flask
 
-Privacy-conscious: processes URLs without collecting personal data.
+Machine Learning: Scikit-learn, Pandas, Joblib
 
-📂 Dataset
-Collected from trusted public source Kaggle.
+Frontend: HTML, CSS
 
-Features extracted include: URL length, special characters, subdomain count, use of IP addresses, HTTPS presence, and domain age.
+🚀 Getting Started
+Follow these steps to get the project up and running on your local machine.
 
-🛠️ Installation
-bash
-git clone https://github.com/sainithinpamulaparthi/phishing-url-detection
-cd phishing-url-detection-using-machine-learning
+Prerequisites
+Python 3.x
+
+pip (Python package installer)
+
+Installation & Setup
+Clone the repository:
+
+git clone https://github.com/sainithinpamulaparthi/Phishing-URL-Detection-Using-Machiine-Learning.git
+cd phishing-url-detector
+
+Install the required libraries:
+
 pip install -r requirements.txt
-🚀 Usage
-Jupyter Notebook:
-Run the step-by-step notebook Phishing_Detection.ipynb for detailed analysis and model training.
 
-Web Application:
-Start the Flask app:
+Place the dataset:
+Make sure the phishing_site_urls.csv file is in the root directory of the project.
 
-bash
-python app.py
-Open your browser at http://localhost:5000 to interact with the detection tool.
+Run the application:
 
-Command-Line Interface:
-Use scripts in src/ to test URLs individually or in batch mode.
+python web_app.py
 
-📊 Model Performance
-Model	Accuracy	Precision	Recall	F1-Score
-Logistic Regression	98.1%	97.5%	98.0%	97.7%
-Random Forest	98.5%	97.8%	98.1%	97.9%
-SVM	98.0%	97.2%	97.9%	97.5%
-📁 Project Structure
-text
-phishing-url-detection/
-├── assets/            # Images, screenshots
-├── data/              # Raw & processed datasets
-├── notebooks/         # Exploratory Data Analysis & modeling
-├── src/               # Core modules & scripts
-├── app.py             # Flask web app main file
-├── requirements.txt   # Python dependencies
-└── README.md          # Project documentation
-🤝 Contributing
-Contributions are welcome! Feel free to:
+Access the application:
+Open your web browser and navigate to http://127.0.0.1:5000.
 
-Fork the repo
+⚙️ How It Works
+The application's core logic involves a few key steps:
 
-Create a feature branch
+Feature Extraction: When a user submits a URL, its structural properties (like URL length, presence of an IP address, use of hyphens, etc.) are converted into a numerical feature set.
 
-Submit pull requests
+Model Prediction: These features are fed into the pre-trained Random Forest model.
 
-Report issues or suggest enhancements
+Classification: The model classifies the URL as either Legitimate (0) or Phishing (1).
 
-📃 License
-This project is licensed under the MIT License. See LICENSE for details.
+Display Result: The result is then displayed to the user on the web interface.
 
-🙋 Contact
-Project Maintainer: [Sai Nithin Pamulaparthi]
-Email: nithu772005@gmail.com
-Feel free to reach out for collaboration or queries.
-
-⭐ If you find this project useful, please star the repository!
+The model is trained only once (the first time the app runs) and then saved as phishing_model.joblib for instant loading in future sessions.
