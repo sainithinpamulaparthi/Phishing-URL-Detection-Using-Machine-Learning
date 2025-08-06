@@ -1,0 +1,55 @@
+Project Report: Phishing URL Detection Web Application
+1. Project Objective
+The primary objective of this project is to develop an intelligent web application that can accurately classify a given URL as either "Legitimate" or a "Phishing" attempt. The application uses a machine learning model to analyze the structure of a URL and make a real-time prediction, providing users with a tool to protect themselves from online fraud.
+
+2. Core Components
+The project is built on two main components:
+
+A Machine Learning Model: The "brain" of the application. It is a RandomForestClassifier trained on a large dataset of known legitimate and phishing URLs. Its job is to learn the patterns that distinguish a malicious URL from a safe one.
+
+A Flask Web Application: The user-friendly interface. It provides the website where users can log in, submit a URL, and see the prediction result. It acts as the bridge between the user and the machine learning model.
+
+3. How It Works: The Workflow
+The application follows a simple and logical workflow:
+
+Model Training/Loading: When the application is first launched, it checks if a pre-trained model file (phishing_model.joblib) exists.
+
+If yes, it loads the model instantly, making the app start quickly.
+
+If no, it performs a one-time training process using the phishing_site_urls.csv dataset, then saves the new model for future use.
+
+User Login: The user is first presented with a login screen. For this project, any username and password combination grants access, simulating a real-world login process.
+
+URL Submission: After logging in, the user is taken to the main detector page. Here, they can enter any URL into the input field and click "Check URL".
+
+Feature Extraction: The submitted URL is immediately processed by the extract_features function. This function breaks down the URL into numerical features based on its characteristics (e.g., presence of an IP address, URL length, use of hyphens, number of subdomains).
+
+Prediction: These numerical features are fed into the trained machine learning model. The model analyzes the features and outputs a prediction: 1 for Phishing or 0 for Legitimate.
+
+Displaying the Result: The application displays the result clearly on the web page, informing the user whether the URL is considered safe or a potential threat.
+
+User Logout: The user can click the "Logout" button at any time to end their session and return to the login screen.
+
+4. Key Technologies Used
+Python: The core programming language for the entire project.
+
+Flask: A lightweight web framework used to build the web application, handle user requests, and display the HTML pages.
+
+Scikit-learn: The primary machine learning library used for training the RandomForestClassifier model.
+
+Pandas: A data manipulation library used for loading and processing the .csv dataset.
+
+Joblib: A library used for efficiently saving and loading the trained machine learning model.
+
+HTML/CSS: Used to structure and style the web pages for a clean and modern user interface.
+
+5. How to Run the Project
+Ensure Python and the required libraries (Flask, scikit-learn, pandas) are installed.
+
+Place the phishing_site_urls.csv dataset file in the same directory as the Python script (web_app.py).
+
+Open a terminal or command prompt in the project directory.
+
+Run the command: python web_app.py
+
+Open a web browser and navigate to the address shown in the terminal (e.g., http://127.0.0.1:5000).
